@@ -1,0 +1,18 @@
+<input type="text" name="img_id" id="img_file" value="<?php echo $nm; ?>" readonly="readonly"> </td>
+    </tr>
+    <tr>
+      <td width="152">img title</td>
+      <td width="251"><input type="text" name="img_title" id="img_file"></td>
+    </tr>
+    <tr>
+      <td width="152">img description</td>
+      <td width="251"><input type="text" name="img_desc" id="img_file"></td>
+    </tr>
+    <tr>
+      <td width="152">Brows image</td>
+      <td width="251"><input type="file" name="img_file" id="img_file"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="submit" id="submit" value="Submit" /></td>
+    </tr>
+  </table>

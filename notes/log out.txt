@@ -1,0 +1,57 @@
+<?php
+	session_start();
+	$login = $_SESSION['login'];
+	mysql_connect("localhost","root","");
+	mysql_select_db("scheduling");
+	$time = date("h:i a",time());
+	$date = date("Y-m-d",time());
+	$newid = $_SESSION['newid'];
+	$query1 = "update logintransaction set logout_date = '$date',logout_time = '$time'  where user_id = '$login' and id = '$newid'";
+
+	$ans = mysql_query($query1);
+	
+	unset($_SESSION['login']);
+	
+	unset($_SESSION['logintime']);
+	
+	unset($_SESSION['logindate']);
+	unset($_SESSION['newid']);
+	unset($_SESSION['access']);
+		session_destroy();
+
+	header('Location:index.php');	
+?>
+
+ADMIN SECTION
+
+<?php
+      session_start();
+	  $U_name = $_SESSION['Uname'];
+	  if($_SESSION['User_Access']!="user")
+	  {
+	  		header('location:Log out.php');	
+	  }
+?>
+USER SECTION
+<?php
+      session_start();
+	  $U_name = $_SESSION['Uname'];
+	  if($_SESSION['User_Access']!="user")
+	  {
+	  		header('location:Log out.php');	
+	
+
+HOME PAGE
+ $_SESSION['newid'] = $newid;
+		   	
+			if($User_Access == 'admin')
+			{
+				$_SESSION['User_Access'] = "admin";
+				header('Location:Admin section.php');
+			}
+			else
+			{
+				$_SESSION['User_Access'] = "user";
+				header('Location:User section.php');
+				
+			}

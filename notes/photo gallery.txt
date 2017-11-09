@@ -1,0 +1,16 @@
+ <?php 
+			 mysql_connect("localhost","root","");
+			 mysql_select_db("project");
+			 $query = 'select * from image';
+			 $sql= mysql_query($query) or (die);
+			 if(mysql_num_rows($sql)>0)
+		{
+			 while ($row = mysql_fetch_array($sql))
+			 {
+			 echo "<li>";
+			 echo "<a href='images/$row[3]'>
+                <img src='images/$row[3]' alt='' width='100' height='100' align='absmiddle' /></a>"; 
+			echo "</li>";
+		     }
+		}
+			 ?>	
